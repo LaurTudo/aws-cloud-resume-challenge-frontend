@@ -1,0 +1,38 @@
+name: Deploy Frontend to S3
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write       # Required for OIDC
+  contents: read        # To fetch repo contents
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::126101929245:role/GitHubActionsOIDCDeployRole
+          aws-region: eu-north-1
+
+      - name: Upload to S3
+        run: |
+          aws s3 sync resume/ s3://resume-tudorascu-2025-terraform/ \
+          --delete \
+          --cache-control "no-cache, no-store, must-revalidate"
+
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+          --distribution-id E1MQRPU8AJJOIW \
+          --paths "/" "/resume/index.html"
+

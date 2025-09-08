@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laurentiu Tudorascu | Cloud Resume</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Laurentiu TUDORASCU</h1>
+      <p>Cloud & Go Developer</p>
+      <a href="mailto:tudorascu.job@pm.me">tudorascu.job@pm.me</a> |
+      <a href="https://github.com/LaurTudo" target="_blank">github.com/LaurTudo</a>
+    </header>
+
+    <hr>
+
+    <section>
+      <h2>Summary</h2>
+      <p><a href="https://www.credly.com/badges/071d3bdc-d351-42f0-a74d-b0ff6ec9b97a/public_url">AWS Certified Cloud Engineer</a> with 5+ years of experience in software development, automation, and testing.
+      </p>
+      <p>
+        Specialized in building scalable, cloud-native systems using Go, with a strong focus on automation and DevOps
+        practices.
+      </p>
+      <p>
+        Developed Go application from scratch to automate test results verification - saving about 8 seconds per test
+        for over 10k tests, and contributed to ASPICE Level 2 certification.
+      </p>
+      <p>
+        Looking for new challenges as a Cloud / Go Software Developer.
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>AWS (Lambda, S3, DynamoDB)</li>
+        <li>Terraform / CloudFormation</li>
+        <li>Go & Python</li>
+        <li>GitHub Actions / CI/CD</li>
+        <li>Docker</li>
+      </ul>
+    </section>
+
+
+    <section>
+
+      <h2>Projects</h2>
+
+      <h4>Serverless Cloud Infrastructure on AWS (Terraform, Go, CI/CD)</h4>
+      <ul>
+      <li>Deployed a static resume site to S3 with CloudFront and ACM for HTTPS - AWS CLI and Cloudflare DNS for custom domain setup.</li>
+      <li>Implemented a serverless visitor counter with API Gateway, Lambda (Go), and DynamoDB (on-demand).</li>
+      <li>Built CI/CD pipeline via GitHub Actions and OIDC-authenticated IAM roles for secure frontend deployments.</li>
+      <li>Managed multi-account access via IAM Identity Center (SSO) using custom permission sets.</li>
+      <li>Defined IaC in Terraform, covering S3 bucket policies, CORS, cache invalidation, DynamoDB setup, and Lambda deployment.</li>
+      </ul>
+
+    </section>
+
+
+    <section>
+      <h2>Experience</h2>
+
+      <h4>Software Test Engineer & DevOps - Magna International</h4>
+      <p class="job-duration"><em>February 2024 – Present</em></p>
+      <p>Software Qualification, Integration, Unit Testing and DevOps for 2 ADAS project. Work in Agile Environment</p>
+      <ul>
+        <li>Developed a method to generate CAPL test steps from an Excel input, automating the process via a custom Python script</li>
+        <li>Developed Go application from scratch to automate test results verification, saving about 8 seconds per test for over 10k tests.</li>
+        <li>Tools: VectorCAST, Cantata, Jenkins, Enterprise Architect, CANoe, CodeBeamer, MKS</li>
+        <li>Improved a Python script to auto-insert test steps and results into Codebeamer, removing manual work altogether.</li>
+        <li>Automated Software Qualification tests via CAPL scripting and debugger.</li>
+      </ul>
+
+      <h4>Software Developer - SII Groupe</h4>
+      <p class="job-duration"><em>April 2023 – February 2024</em></p>
+      <p>Developed and tested advanced control algorithms for thermal engine management systems, focusing on optimizing
+        the performance
+        and efficiency of gas engines. Adhered to MISRA 2012 guidelines and resolved lint issues.</p>
+      <ul>
+        <li>Implemented and tested core components (I/O functions, communication, scheduler)</li>
+        <li>Tools: Eclipse IDE, PyCharm, Vector CANoe, IMB Rational Test RealTime, Jenkins, MKS Integrity, DOORS</li>
+      </ul>
+
+      <h4>Qualification Test Engineer - ALTEN Group</h4>
+      <p class="job-duration"><em>May 2022 – April 2023</em></p>
+      <p>SWIT and SWUT testing of the Instrument Cluster for Mercedes Gen 20X, covering both the driver’s display behind
+        the wheel and the
+        central infotainment display. Ensured integration of critical vehicle information and entertainment features.
+      </p>
+      <ul>
+        <li>Played an active role in the recruitment process, particularly through involvement in technical interviews
+        </li>
+        <li>Tools: VectorCAST, Vector CANoe, Google Test, Robot Framework, Git/GitHub, Jira ticketing system</li>
+      </ul>
+
+      <h4>Software Test Engineer - Forvia Hella</h4>
+      <p class="job-duration"><em>October 2019 – May 2022</em></p>
+      <p>Tested two generations of Rain and Light Sensors, as well as various actuators, to enhance vehicle automation and safety features.</p>
+      <ul>
+        <li>Contributed to an external ASPICE audit/assessment in compliance with ISO 26262, achieving Level 2
+          certification in all domains</li>
+        <li>Implemented and automated Functional Safety test cases for software unit and integration tests across
+          various projects and OEMs</li>
+        <li>Tools: RT Tester, Tessy, VectorCAST, Vector CANoe, IAR Embedded Workbench, Git/GitHub, PTC Integrity, DOORS
+        </li>
+      </ul>
+
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p>Bachelor of Science in Computer Science – West University Timisoara</p>
+      <ul>
+        <li>Student Representative for all study years and organized events to ensure smooth execution.</li>
+        <li>Cisco CCNA studies throughout the studying years.</li>
+      </ul>
+    </section>
+
+    <footer>
+  <p>Visitors: <span id="visitor-count">Loading...</span></p>
+</footer>
+
+<script>
+  fetch('https://85ocxdi4r4.execute-api.eu-north-1.amazonaws.com/resumeVisitorCounter')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visitor-count').textContent = data.count;
+    })
+    .catch(() => {
+      document.getElementById('visitor-count').textContent = 'N/A';
+    });
+</script>
+
+</body>
+
+</html>
