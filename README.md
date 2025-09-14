@@ -14,5 +14,5 @@ This repository contains the **frontend** for a serverless resume website hosted
 ---
 
 ## 🗂️ Related Repositories
-- **Backend** (private for now) – AWS Lambda (Go) + API Gateway + DynamoDB.  
+- [**Backend**](https://github.com/LaurTudo/aws-cloud-resume-challenge-backend) – AWS Lambda (Go) + API Gateway + DynamoDB.  
 - **Infrastructure** (private for now) – Terraform for AWS resources and Cloudflare DNS.  
