@@ -16,7 +16,7 @@
       <p>Cloud & Go Developer</p>
       <a href="mailto:tudorascu.job@pm.me">tudorascu.job@pm.me</a> |
       <a href="https://github.com/LaurTudo" target="_blank">github.com/LaurTudo</a>
-      <p>Visitors: <span id="visitor-count">Loading...</span></p>
+      <p>Visitors: <span class="visitor-count">Loading...</span></p>
     </header>
 
     <hr>
@@ -126,17 +126,21 @@
     </section>
 
     <footer>
-  <p>Visitors: <span id="visitor-count">Loading...</span></p>
+  <p>Visitors: <span class="visitor-count">Loading...</span></p>
 </footer>
 
 <script>
   fetch('https://85ocxdi4r4.execute-api.eu-north-1.amazonaws.com/resumeVisitorCounter')
     .then(res => res.json())
     .then(data => {
-      document.getElementById('visitor-count').textContent = data.count;
+      document.querySelectorAll('.visitor-count').forEach(el => {
+        el.textContent = data.count;
+      });
     })
     .catch(() => {
-      document.getElementById('visitor-count').textContent = 'N/A';
+      document.querySelectorAll('.visitor-count').forEach(el => {
+        el.textContent = 'N/A';
+      });
     });
 </script>
 
